@@ -9,12 +9,12 @@ import io.swagger.v3.oas.annotations.info.Info;
 
 @OpenAPIDefinition(
 		info = @Info(
-				title = "Backend da Aplicação Construída na Disciplina TE",
+				title = "Biblioteca Virtual Pública",
 				version = "1.0",
-				description = "Backend da Aplicação Construída na Disciplina TE",
+				description = "API da Disciplina TEPW 2025.1",
 				contact = @Contact(
-						name = "Adriano Lima",
-						email = "analista.adrianolima@gmail.com",
+						name = "Ítalo & Jefferson",
+						email = "jefferson.c.nunes@gmail.com",
 						url = "http://unichristus.edu.br/")
 		)
 )

@@ -20,18 +20,13 @@ public class Categoria {
     @Column(length = 100)
     private String areaConhecimento;
 
-    @ManyToOne
-    @JoinColumn(name = "id_livro", nullable = false)
-    private Livro livro;
-
     public Categoria() {
     }
 
-    public Categoria(String nome, String descricao, String areaConhecimento, Livro livro) {
+    public Categoria(String nome, String descricao, String areaConhecimento) {
         this.nome = nome;
         this.descricao = descricao;
         this.areaConhecimento = areaConhecimento;
-        this.livro = livro;
     }
 
     // Getters e Setters
@@ -67,14 +62,6 @@ public class Categoria {
         this.areaConhecimento = areaConhecimento;
     }
 
-    public Livro getLivro() {
-        return livro;
-    }
-
-    public void setLivro(Livro livro) {
-        this.livro = livro;
-    }
-
     // equals e hashCode
     @Override
     public boolean equals(Object o) {
@@ -97,7 +84,6 @@ public class Categoria {
                 ", nome='" + nome + '\'' +
                 ", descricao='" + descricao + '\'' +
                 ", areaConhecimento='" + areaConhecimento + '\'' +
-                ", livro=" + (livro != null ? livro.getIdLivro() : "null") +
                 '}';
     }
 }

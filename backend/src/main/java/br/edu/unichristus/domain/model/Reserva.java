@@ -12,14 +12,6 @@ public class Reserva {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idReserva;
 
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "idUser", nullable = false)
-    private User user;
-
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "idLivro", nullable = false)
-    private Livro livro;
-
     @Column(nullable = false)
     private LocalDate dataReserva;
 
@@ -32,9 +24,7 @@ public class Reserva {
     public Reserva() {
     }
 
-    public Reserva(Usuario usuario, Livro livro, LocalDate dataReserva, LocalDate prazo, String status) {
-        this.usuario = usuario;
-        this.livro = livro;
+    public Reserva(LocalDate dataReserva, LocalDate prazo, String status) {
         this.dataReserva = dataReserva;
         this.prazo = prazo;
         this.status = status;
@@ -47,22 +37,6 @@ public class Reserva {
 
     public void setIdReserva(Long idReserva) {
         this.idReserva = idReserva;
-    }
-
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
-
-    public Livro getLivro() {
-        return livro;
-    }
-
-    public void setLivro(Livro livro) {
-        this.livro = livro;
     }
 
     public LocalDate getDataReserva() {
@@ -107,8 +81,6 @@ public class Reserva {
     public String toString() {
         return "Reserva{" +
                 "idReserva=" + idReserva +
-                ", usuario=" + usuario +
-                ", livro=" + livro +
                 ", dataReserva=" + dataReserva +
                 ", prazo=" + prazo +
                 ", status='" + status + '\'' +

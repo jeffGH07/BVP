@@ -28,26 +28,16 @@ public class Emprestimo {
     @JoinColumn(name = "id_livro", nullable = false)
     private Livro livro;
 
-    @ManyToOne
-    @JoinColumn(name = "id_user", nullable = false)
-    private Usuario usuario;
-
-    @ManyToOne
-    @JoinColumn(name = "id_reserva")
-    private Reserva reserva;
-
     public Emprestimo() {
     }
 
-    public Emprestimo(Long idEmprestimo, Date dataEmprestimo, Date dataDevolucao, Double multa, String status, Livro livro, Usuario usuario, Reserva reserva) {
+    public Emprestimo(Long idEmprestimo, Date dataEmprestimo, Date dataDevolucao, Double multa, String status, Livro livro) {
         this.idEmprestimo = idEmprestimo;
         this.dataEmprestimo = dataEmprestimo;
         this.dataDevolucao = dataDevolucao;
         this.multa = multa;
         this.status = status;
         this.livro = livro;
-        this.usuario = usuario;
-        this.reserva = reserva;
     }
 
     // Getters e Setters
@@ -99,22 +89,6 @@ public class Emprestimo {
         this.livro = livro;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
-
-    public Reserva getReserva() {
-        return reserva;
-    }
-
-    public void setReserva(Reserva reserva) {
-        this.reserva = reserva;
-    }
-
     // equals e hashCode
     @Override
     public boolean equals(Object o) {
@@ -139,8 +113,6 @@ public class Emprestimo {
                 ", multa=" + multa +
                 ", status='" + status + '\'' +
                 ", livro=" + (livro != null ? livro.getIdLivro() : "null") +
-                ", usuario=" + (usuario != null ? usuario.getIdUsuario() : "null") +
-                ", reserva=" + (reserva != null ? reserva.getIdReserva() : "null") +
                 '}';
     }
 }
