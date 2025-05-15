@@ -1,35 +1,24 @@
-package br.edu.unichristus.domain.model;
+package br.edu.unichristus.domain.dto;
 
-import jakarta.persistence.*;
+import br.edu.unichristus.domain.model.Livro;
+
 import java.util.Date;
+import java.time.LocalDate;
+
 import java.util.Objects;
 
-@Entity
-@Table(name = "tb_emprestimo")
-public class Emprestimo {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class EmprestimoDTO {
     private Long idEmprestimo;
-
-    @Column(nullable = false)
     private Date dataEmprestimo;
-
-    @Column(nullable = false)
     private Date dataDevolucao;
-
-    @Column
     private Double multa;
-
-    @Column(nullable = false)
     private String status;
-
     private Livro livro;
 
-    public Emprestimo() {
+    public EmprestimoDTO() {
     }
 
-    public Emprestimo(Long idEmprestimo, Date dataEmprestimo, Date dataDevolucao, Double multa, String status, Livro livro) {
+    public EmprestimoDTO(Long idEmprestimo, Date dataEmprestimo, Date dataDevolucao, Double multa, String status, Livro livro) {
         this.idEmprestimo = idEmprestimo;
         this.dataEmprestimo = dataEmprestimo;
         this.dataDevolucao = dataDevolucao;
@@ -85,32 +74,5 @@ public class Emprestimo {
 
     public void setLivro(Livro livro) {
         this.livro = livro;
-    }
-
-    // equals e hashCode
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Emprestimo)) return false;
-        Emprestimo that = (Emprestimo) o;
-        return Objects.equals(idEmprestimo, that.idEmprestimo);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(idEmprestimo);
-    }
-
-    // toString
-    @Override
-    public String toString() {
-        return "Emprestimo{" +
-                "idEmprestimo=" + idEmprestimo +
-                ", dataEmprestimo=" + dataEmprestimo +
-                ", dataDevolucao=" + dataDevolucao +
-                ", multa=" + multa +
-                ", status='" + status + '\'' +
-                ", livro=" + (livro != null ? livro.getIdLivro() : "null") +
-                '}';
     }
 }

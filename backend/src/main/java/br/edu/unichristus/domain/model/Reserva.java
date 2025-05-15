@@ -25,6 +25,7 @@ public class Reserva {
     }
 
     public Reserva(LocalDate dataReserva, LocalDate prazo, String status) {
+        this.idReserva = idReserva;
         this.dataReserva = dataReserva;
         this.prazo = prazo;
         this.status = status;
