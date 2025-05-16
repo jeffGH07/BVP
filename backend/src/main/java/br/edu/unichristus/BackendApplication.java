@@ -13,7 +13,7 @@ import io.swagger.v3.oas.annotations.info.Info;
 				version = "1.0",
 				description = "API da Disciplina TEPW 2025.1",
 				contact = @Contact(
-						name = "Ítalo & Jefferson",
+						name = "Ítalo Duarte & Jefferson Nunes",
 						email = "jefferson.c.nunes@gmail.com",
 						url = "http://unichristus.edu.br/")
 		)
