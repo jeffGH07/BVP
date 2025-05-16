@@ -44,13 +44,13 @@ public class EmprestimoController {
             @ApiResponse(responseCode = "404", description = "Empréstimo não encontrado!",
                     content = @Content(schema = @Schema(implementation = MessageDTO.class)))
     })
-    @GetMapping("/{emprestimoId}")
-    public Emprestimo findById(@PathVariable Long emprestimoId){
-        return service.findById(emprestimoId);
+    @GetMapping("/{idEmprestimo}")
+    public Emprestimo findById(@PathVariable Long idEmprestimo){
+        return service.findById(idEmprestimo);
     }
 
-    @DeleteMapping("/{emprestimoId}")
-    public void delete(@PathVariable Long emprestimoId){
-        service.delete(emprestimoId);
+    @DeleteMapping("/{idEmprestimo}")
+    public void delete(@PathVariable Long idEmprestimo){
+        service.delete(idEmprestimo);
     }
 }

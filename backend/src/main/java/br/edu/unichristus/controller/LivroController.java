@@ -44,13 +44,13 @@ public class LivroController {
             @ApiResponse(responseCode = "404", description = "Livro não encontrado!",
                     content = @Content(schema = @Schema(implementation = MessageDTO.class)))
     })
-    @GetMapping("/{livroId}")
-    public Livro findById(@PathVariable Long livroId){
-        return service.findById(livroId);
+    @GetMapping("/{idLivro}")
+    public Livro findById(@PathVariable Long idLivro){
+        return service.findById(idLivro);
     }
 
-    @DeleteMapping("/{livroId}")
-    public void delete(@PathVariable Long livroId){
-        service.delete(livroId);
+    @DeleteMapping("/{idLivro}")
+    public void delete(@PathVariable Long idLivro){
+        service.delete(idLivro);
     }
 }

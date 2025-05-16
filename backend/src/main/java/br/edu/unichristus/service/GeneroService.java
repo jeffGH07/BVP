@@ -28,18 +28,18 @@ public class GeneroService {
         return MapperUtil.parseListObjects(listGeneros, GeneroDTO.class);
     }
 
-    public Genero findById(Long generoId){
-        var generoEntity = repository.findById(generoId);
+    public Genero findById(Long idGenero){
+        var generoEntity = repository.findById(idGenero);
         if(generoEntity.isEmpty()){
             throw new CommonsException(HttpStatus.NOT_FOUND,
                     "unichristus.user.findbyid.notfound",
                     "Gênero não encontrado!");
         }
 
-        return repository.findById(generoId).get();
+        return repository.findById(idGenero).get();
     }
 
-    public void delete(Long generoId){
-        repository.deleteById(generoId);
+    public void delete(Long idGenero){
+        repository.deleteById(idGenero);
     }
 }

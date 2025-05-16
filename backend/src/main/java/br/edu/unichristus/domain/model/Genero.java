@@ -17,17 +17,12 @@ public class Genero {
     @Column(length = 300)
     private String descricao;
 
-    @ManyToOne
-    @JoinColumn(name = "id_livro", nullable = false)
-    private Livro livro;
-
     public Genero() {
     }
 
-    public Genero(String nome, String descricao, Livro livro) {
+    public Genero(String nome, String descricao) {
         this.nome = nome;
         this.descricao = descricao;
-        this.livro = livro;
     }
 
     // Getters e Setters
@@ -55,14 +50,6 @@ public class Genero {
         this.descricao = descricao;
     }
 
-    public Livro getLivro() {
-        return livro;
-    }
-
-    public void setLivro(Livro livro) {
-        this.livro = livro;
-    }
-
     // equals e hashCode
     @Override
     public boolean equals(Object o) {
@@ -84,7 +71,6 @@ public class Genero {
                 "idGenero=" + idGenero +
                 ", nome='" + nome + '\'' +
                 ", descricao='" + descricao + '\'' +
-                ", livro=" + (livro != null ? livro.getIdLivro() : "null") +
                 '}';
     }
 }

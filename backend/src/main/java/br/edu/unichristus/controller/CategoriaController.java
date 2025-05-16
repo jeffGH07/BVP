@@ -44,13 +44,13 @@ public class CategoriaController {
             @ApiResponse(responseCode = "404", description = "Categoria não encontrada!",
                     content = @Content(schema = @Schema(implementation = MessageDTO.class)))
     })
-    @GetMapping("/{CategoriaId}")
-    public Categoria findById(@PathVariable Long categoriaId){
-        return service.findById(categoriaId);
+    @GetMapping("/{idCategoria}")
+    public Categoria findById(@PathVariable Long idCategoria){
+        return service.findById(idCategoria);
     }
 
-    @DeleteMapping("/{CategoriaId}")
-    public void delete(@PathVariable Long categoriaId){
-        service.delete(categoriaId);
+    @DeleteMapping("/{idCategoria}")
+    public void delete(@PathVariable Long idCategoria){
+        service.delete(idCategoria);
     }
 }

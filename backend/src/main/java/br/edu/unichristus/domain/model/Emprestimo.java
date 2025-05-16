@@ -1,7 +1,7 @@
 package br.edu.unichristus.domain.model;
 
 import jakarta.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
@@ -13,10 +13,10 @@ public class Emprestimo {
     private Long idEmprestimo;
 
     @Column(nullable = false)
-    private Date dataEmprestimo;
+    private LocalDate dataEmprestimo;
 
     @Column(nullable = false)
-    private Date dataDevolucao;
+    private LocalDate dataDevolucao;
 
     @Column
     private Double multa;
@@ -24,18 +24,15 @@ public class Emprestimo {
     @Column(nullable = false)
     private String status;
 
-    private Livro livro;
-
     public Emprestimo() {
     }
 
-    public Emprestimo(Long idEmprestimo, Date dataEmprestimo, Date dataDevolucao, Double multa, String status, Livro livro) {
+    public Emprestimo(Long idEmprestimo, LocalDate dataEmprestimo, LocalDate dataDevolucao, Double multa, String status) {
         this.idEmprestimo = idEmprestimo;
         this.dataEmprestimo = dataEmprestimo;
         this.dataDevolucao = dataDevolucao;
         this.multa = multa;
         this.status = status;
-        this.livro = livro;
     }
 
     // Getters e Setters
@@ -47,19 +44,19 @@ public class Emprestimo {
         this.idEmprestimo = idEmprestimo;
     }
 
-    public Date getDataEmprestimo() {
+    public LocalDate getDataEmprestimo() {
         return dataEmprestimo;
     }
 
-    public void setDataEmprestimo(Date dataEmprestimo) {
+    public void setDataEmprestimo(LocalDate dataEmprestimo) {
         this.dataEmprestimo = dataEmprestimo;
     }
 
-    public Date getDataDevolucao() {
+    public LocalDate getDataDevolucao() {
         return dataDevolucao;
     }
 
-    public void setDataDevolucao(Date dataDevolucao) {
+    public void setDataDevolucao(LocalDate dataDevolucao) {
         this.dataDevolucao = dataDevolucao;
     }
 
@@ -77,14 +74,6 @@ public class Emprestimo {
 
     public void setStatus(String status) {
         this.status = status;
-    }
-
-    public Livro getLivro() {
-        return livro;
-    }
-
-    public void setLivro(Livro livro) {
-        this.livro = livro;
     }
 
     // equals e hashCode
@@ -110,7 +99,6 @@ public class Emprestimo {
                 ", dataDevolucao=" + dataDevolucao +
                 ", multa=" + multa +
                 ", status='" + status + '\'' +
-                ", livro=" + (livro != null ? livro.getIdLivro() : "null") +
                 '}';
     }
 }

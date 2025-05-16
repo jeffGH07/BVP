@@ -28,18 +28,18 @@ public class LivroService {
         return MapperUtil.parseListObjects(listLivros, LivroDTO.class);
     }
 
-    public Livro findById(Long livroId){
-        var livroEntity = repository.findById(livroId);
+    public Livro findById(Long idLivro){
+        var livroEntity = repository.findById(idLivro);
         if(livroEntity.isEmpty()){
             throw new CommonsException(HttpStatus.NOT_FOUND,
                     "unichristus.user.findbyid.notfound",
                     "Usuário não encontrado!");
         }
 
-        return repository.findById(livroId).get();
+        return repository.findById(idLivro).get();
     }
 
-    public void delete(Long livroId){
-        repository.deleteById(livroId);
+    public void delete(Long idLivro){
+        repository.deleteById(idLivro);
     }
 }

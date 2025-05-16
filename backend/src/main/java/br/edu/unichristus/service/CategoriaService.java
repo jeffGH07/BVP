@@ -28,18 +28,18 @@ public class CategoriaService {
         return MapperUtil.parseListObjects(listCategorias, CategoriaDTO.class);
     }
 
-    public Categoria findById(Long categoriaId){
-        var CategoriaEntity = repository.findById(categoriaId);
+    public Categoria findById(Long idCategoria){
+        var CategoriaEntity = repository.findById(idCategoria);
         if(CategoriaEntity.isEmpty()){
             throw new CommonsException(HttpStatus.NOT_FOUND,
                     "unichristus.user.findbyid.notfound",
                     "Categoria não encontrada!");
         }
 
-        return repository.findById(categoriaId).get();
+        return repository.findById(idCategoria).get();
     }
 
-    public void delete(Long categoriaId){
-        repository.deleteById(categoriaId);
+    public void delete(Long idCategoria){
+        repository.deleteById(idCategoria);
     }
 }

@@ -28,18 +28,18 @@ public class EmprestimoService {
         return MapperUtil.parseListObjects(listEmprestimos, EmprestimoDTO.class);
     }
 
-    public Emprestimo findById(Long emprestimoId){
-        var emprestimoEntity = repository.findById(emprestimoId);
+    public Emprestimo findById(Long idEmprestimo){
+        var emprestimoEntity = repository.findById(idEmprestimo);
         if(emprestimoEntity.isEmpty()){
             throw new CommonsException(HttpStatus.NOT_FOUND,
                     "unichristus.user.findbyid.notfound",
                     "Empréstimo não encontrado!");
         }
 
-        return repository.findById(emprestimoId).get();
+        return repository.findById(idEmprestimo).get();
     }
 
-    public void delete(Long emprestimoId){
-        repository.deleteById(emprestimoId);
+    public void delete(Long idEmprestimo){
+        repository.deleteById(idEmprestimo);
     }
 }

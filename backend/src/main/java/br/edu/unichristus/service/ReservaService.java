@@ -28,18 +28,18 @@ public class ReservaService {
         return MapperUtil.parseListObjects(listReservas, ReservaDTO.class);
     }
 
-    public Reserva findById(Long reservaId){
-        var reservaEntity = repository.findById(reservaId);
+    public Reserva findById(Long idReserva){
+        var reservaEntity = repository.findById(idReserva);
         if(reservaEntity.isEmpty()){
             throw new CommonsException(HttpStatus.NOT_FOUND,
                     "unichristus.user.findbyid.notfound",
                     "Reserva não encontrada!");
         }
 
-        return repository.findById(reservaId).get();
+        return repository.findById(idReserva).get();
     }
 
-    public void delete(Long reservaId){
-        repository.deleteById(reservaId);
+    public void delete(Long idReserva){
+        repository.deleteById(idReserva);
     }
 }

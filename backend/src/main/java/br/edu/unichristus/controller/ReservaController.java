@@ -44,13 +44,13 @@ public class ReservaController {
             @ApiResponse(responseCode = "404", description = "Reserva não encontrada!",
                     content = @Content(schema = @Schema(implementation = MessageDTO.class)))
     })
-    @GetMapping("/{reservaId}")
-    public Reserva findById(@PathVariable Long reservaId){
-        return service.findById(reservaId);
+    @GetMapping("/{idReserva}")
+    public Reserva findById(@PathVariable Long idReserva){
+        return service.findById(idReserva);
     }
 
-    @DeleteMapping("/{reservaId}")
-    public void delete(@PathVariable Long reservaId){
-        service.delete(reservaId);
+    @DeleteMapping("/{idReserva}")
+    public void delete(@PathVariable Long idReserva){
+        service.delete(idReserva);
     }
 }

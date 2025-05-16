@@ -44,13 +44,13 @@ public class GeneroController {
             @ApiResponse(responseCode = "404", description = "Genero não encontrado!",
                     content = @Content(schema = @Schema(implementation = MessageDTO.class)))
     })
-    @GetMapping("/{generoId}")
-    public Genero findById(@PathVariable Long generoId){
-        return service.findById(generoId);
+    @GetMapping("/{idGenero}")
+    public Genero findById(@PathVariable Long idGenero){
+        return service.findById(idGenero);
     }
 
-    @DeleteMapping("/{generoId}")
-    public void delete(@PathVariable Long generoId){
-        service.delete(generoId);
+    @DeleteMapping("/{idGenero}")
+    public void delete(@PathVariable Long idGenero){
+        service.delete(idGenero);
     }
 }
